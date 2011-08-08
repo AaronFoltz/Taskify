@@ -2,6 +2,7 @@
 package tasks;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 import javax.servlet.http.HttpServlet;
@@ -63,9 +64,38 @@ public class TaskifyServlet extends HttpServlet {
 		TaskLists tasklist = new Gson()
 				.fromJson(response.getBody(), TaskLists.class);
 
-		System.out.println(tasklist.toString());
-		// Set the response type and response length. This is necessary for it
-		// to work.
+		System.out.println(tasklist.getItems());
+
+		resp.setContentType("text/html");
+
+		PrintWriter out = resp.getWriter();
+
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<script type=\"text/javascript\">");
+		out.println("function displayResult() {");
+		out.println("var x=document.getElementById(\"mySelect\").selectedIndex;");
+		out.println("var y=document.getElementById(\"mySelect\").options;}");
+		out.println("</script>");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<form>");
+		out.println("Select your task list:");
+
+		out.println("<select id=\"listSelect\">");
+		System.out.println("<select>");
+
+		for (TaskList tl : tasklist.getItems()) {
+			out.println("<option>" + tl.getTitle() + "</option>");
+			System.out.println("<option>" + tl.getTitle() + "</option>");
+		}
+		out.println("</select>");
+		out.println("</form>");
+		out.println("<button type=\button\" onclick=\"displayResult()\">Choose list</button>");
+		out.println("</body>");
+		out.println("</html>");
+		out.close();
+
 	}
 
 	/**

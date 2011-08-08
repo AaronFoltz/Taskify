@@ -13,6 +13,9 @@ public class TaskLists {
 
 	public TaskList[] getItems() {
 
+		for (TaskList tl : items) {
+			System.out.println(tl.getTitle());
+		}
 		return items;
 	}
 
@@ -41,5 +44,4 @@ public class TaskLists {
 
 		return items.toString();
 	}
-
 }
