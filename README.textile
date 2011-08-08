@@ -1,0 +1,11 @@
+h2. Welcome to Taskify
+
+h1. Why use Taskify
+
+As of now, Google Tasks does not allow you to create recurring tasks.  With taskify, you can choose more than one date for each task.
+
+h1. About me
+
+Email me: foltz.aaron at gmail.com
+Follow me: "@Aaron_Foltz":http://twitter.com/Aaron_Foltz
+Visit me: "Aaron Foltz":http://www.aaronfoltz.com
